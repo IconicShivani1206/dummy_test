@@ -1,17 +1,22 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout'){
-            steps{
+        stage('Checkout') {
+            steps {
                 checkout scm
             }
         }
-        stage('Run python Script') {
+        stage('Compile Java Code') {
             steps {
-                // Use the full path to your Python executable (from 'where python')
-                bat '"C:\\Program Files\\Python312\\python.exe" hello.py'
+                // Compile the Java file
+                bat 'javac Main.java'
             }
         }
-
+        stage('Run Java Program') {
+            steps {
+                // Run the compiled Java class
+                bat 'java Main'
+            }
+        }
     }
 }
