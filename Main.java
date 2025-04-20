@@ -10,6 +10,6 @@ public class Main {
     }
 
     public static String check() {
-        return "h";
+        return "h;
     }
 }
